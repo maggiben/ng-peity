@@ -1,0 +1,31 @@
+{
+  "name": "ng-peity",
+  "main": "ng-peity.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/maggiben/ng-peity",
+  "authors": [
+    "Benjamin Maggi <benjaminmaggi@gmail.com>"
+  ],
+  "description": "An AngularJS directive for using Peity charts",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "peity",
+    "charts",
+    "svg",
+    "angularjs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "peity": "benpickles/peity",
+    "jquery": "~2.0.3"
+  }
+}
