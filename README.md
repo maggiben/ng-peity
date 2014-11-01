@@ -1,3 +1,7 @@
+## Demo 
+[plnkr](http://embed.plnkr.co/ITWOx4CJnVpVaDmpHewY/preview)
+
+## About
 [Peity](http://benpickles.github.io/peity/) is a jQuery plugin that converts an element's content into simple `<svg>` charts. This is an AngularJS directive that makes them easy to use in any project by binding data and options to a controller.
 
 ## Installation
