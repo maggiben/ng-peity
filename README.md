@@ -1,7 +1,7 @@
 [Peity](http://benpickles.github.io/peity/) is a jQuery plugin that converts an element's content into simple `<svg>` charts. This is an AngularJS directive that makes them easy to use in any project by binding data and options to a controller.
 
 ## Installation
-This project, along with all of its dependencies are installed with [Bower](http://bower.io/): `bower install angular-peity`.
+This project, along with all of its dependencies are installed with [Bower](http://bower.io/): `bower install ng-peity`.
 
 ## Set up
 If you're familar with how to include third-party modules in AngularJS, then you can probably skip this section. If you're new to the framework, this should help.
@@ -12,19 +12,19 @@ Include the file before the main app file:
 ~~~html
 <script src="/bower_components/jquery/jquery.min.js"></script>
 <script src="/bower_components/peity/jquery.peity.min.js"></script>
-<script src="/bower_components/angular-peity/angular-peity.js"></script>
+<script src="/bower_components/ng-peity/ng-peity.js"></script>
 <script src="/js/app.js"></script>
 ~~~
 
 ### Step 3
-Add `angular-peity` to the app requirements (`/js/app.js`).
+Add `ng-peity` to the app requirements (`/js/app.js`).
 ~~~javascript
 var app = angular.module('myApp', [
     'myApp.controllers',
     'myApp.filters',
     'myApp.services',
     // 3rd party dependencies
-    'angular-peity'
+    'ng-peity'
 ]);
 ~~~
 

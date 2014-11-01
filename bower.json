@@ -6,7 +6,7 @@
   "authors": [
     "Benjamin Maggi <benjaminmaggi@gmail.com>"
   ],
-  "description": "An AngularJS directive for using Peity charts",
+  "description": "An AngularJS directive for Peity charts",
   "moduleType": [
     "globals"
   ],
