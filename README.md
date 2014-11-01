@@ -7,6 +7,10 @@
 ## Installation
 This project, along with all of its dependencies are installed with [Bower](http://bower.io/): `bower install ng-peity`.
 
+## Features
+* Automatic updates for values & options
+* Listens for window resize event (w/debounce) for those who need responsive charts
+ 
 ## Set up
 If you're familar with how to include third-party modules in AngularJS, then you can probably skip this section. If you're new to the framework, this should help.
 
@@ -87,9 +91,16 @@ cMod.controller( 'ChartCtrl', function ( $scope, $interval ) {
 
 #### Template Example
 ~~~html
-<inline-pie-chart data="PieChart.data" options="PieChart.options"></pie-chart>
+<inline-pie-chart data="PieChart.data" options="PieChart.options"></inline-pie-chart>
 
-<inline-bar-chart data="BarChart.data" options="BarChart.options"></bar-chart>
+<inline-bar-chart data="BarChart.data" options="BarChart.options"></inline-bar-chart>
 
-<inline-line-chart data="LineChart.data" options="LineChart.options"></line-chart>
+<inline-line-chart data="LineChart.data" options="LineChart.options"></inline-line-chart>
 ~~~
+
+
+# Acknowledgments
+
+See the LICENSES.md file for copies of the referenced licenses.
+
+1. Inspired from Brian Hines <brian@projectweekend.net> [angular-peity](https://github.com/projectweekend/angular-peity)
