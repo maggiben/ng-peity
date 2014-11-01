@@ -34,7 +34,7 @@
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 
-var angularPeity = angular.module( 'ng-peity', [] )
+var ngPeity = angular.module( 'ng-peity', [] )
 .factory('buildChartDirective', ['$window', '$timeout', function($window, $timeout){
     
     return function(chartType) {    
