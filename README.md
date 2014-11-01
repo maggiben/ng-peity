@@ -37,9 +37,9 @@ This module creates three custom directives (tags) that can be used anywhere in 
 
 #### Controller Example
 ~~~javascript
-var cMod = angular.module( 'myApp.controllers', [] );
+var cMod = angular.module( 'myApp.controllers', ['ng-peity'] );
 
-cMod.controller( 'ChartCtrl', function ( $scope ) {
+cMod.controller( 'ChartCtrl', function ( $scope, $interval ) {
 
     /*
         This example is over simplified to demonstrate the relationship
@@ -61,6 +61,14 @@ cMod.controller( 'ChartCtrl', function ( $scope ) {
             height: 150
         }
     };
+    
+    // Test automatic updates
+    $interval(function() {
+        var random = Math.round(Math.random() * 10);
+        $scope.BarChart.data.shift();
+        $scope.BarChart.data.push(random);
+        $scope.BarChart.options.fill[0] = '#'+Math.floor(Math.random()*16777215).toString(16);
+    }, 1000);
 
     $scope.LineChart = {
         data: [1, 2, 3, 4, 3, 1],
@@ -75,9 +83,9 @@ cMod.controller( 'ChartCtrl', function ( $scope ) {
 
 #### Template Example
 ~~~html
-<pie-chart data="PieChart.data" options="PieChart.options"></pie-chart>
+<inline-pie-chart data="PieChart.data" options="PieChart.options"></pie-chart>
 
-<bar-chart data="BarChart.data" options="BarChart.options"></bar-chart>
+<inline-bar-chart data="BarChart.data" options="BarChart.options"></bar-chart>
 
-<line-chart data="LineChart.data" options="LineChart.options"></line-chart>
+<inline-line-chart data="LineChart.data" options="LineChart.options"></line-chart>
 ~~~
