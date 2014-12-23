@@ -51,7 +51,9 @@ var ngPeity = angular.module( 'ng-peity', [] )
                 // Create container
                 options = scope.options || {};
                 $span = element.append('<span></span>');
-                $span.text(scope.data.join());
+                if (scope.data) {
+                    $span.text(scope.data.join());
+                }
                 chart = $span.peity( chartType, options );
 
                 // Debounce f() ripped from _.
@@ -81,7 +83,9 @@ var ngPeity = angular.module( 'ng-peity', [] )
 
                 // Update chart values
                 scope.$watchCollection('data', function (newVal, oldVal) {
-                    chart.text(newVal.join(",")).change();
+                    if (newVal) {
+                        chart.text(newVal.join(",")).change();
+                    }
                 });
                 
                 // Update options
