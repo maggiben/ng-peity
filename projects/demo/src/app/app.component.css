@@ -1,0 +1,88 @@
+.page {
+  box-sizing: border-box;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1a1a1a;
+}
+
+header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+header p {
+  margin: 0 0 2rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+header a {
+  color: #4d89f9;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  padding: 1.25rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.card h2 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.card button {
+  margin-top: 1rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.card button:hover {
+  border-color: #4d89f9;
+  color: #4d89f9;
+}
+
+.hint {
+  margin: 0.75rem 0 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.legacy {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e8e8e8;
+}
+
+.legacy h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.legacy p {
+  margin: 0 0 1rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.legacy inline-pie-chart,
+.legacy inline-bar-chart,
+.legacy inline-line-chart {
+  margin-right: 1rem;
+  vertical-align: middle;
+}

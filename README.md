@@ -1,106 +1,93 @@
-## Demo 
-[plnkr](http://embed.plnkr.co/ITWOx4CJnVpVaDmpHewY/preview)
+# ng-peity
 
-## About
-[Peity](http://benpickles.github.io/peity/) is a jQuery plugin that converts an element's content into simple `<svg>` charts. This is an AngularJS directive that makes them easy to use in any project by binding data and options to a controller.
+Angular components for [Peity](https://github.com/benpickles/peity)-style mini SVG charts. Built for **Angular 19+** with standalone components, signal inputs, and [peity-vanilla](https://github.com/railsjazz/peity_vanilla) (no jQuery).
+
+The original AngularJS 1.x implementation lives in [`legacy/`](legacy/).
+
+## Demo
+
+```bash
+npm install
+npm start
+```
+
+Open [http://localhost:4200](http://localhost:4200) for pie, donut, bar, and line examples—including a live-updating bar chart like the old Plunker demo.
 
 ## Installation
-This project, along with all of its dependencies are installed with [Bower](http://bower.io/): `bower install ng-peity`.
 
-## Features
-* Automatic updates for values & options
-* Listens for window resize event (w/debounce) for those who need responsive charts
- 
-## Set up
-If you're familar with how to include third-party modules in AngularJS, then you can probably skip this section. If you're new to the framework, this should help.
+```bash
+npm install ng-peity peity-vanilla
+```
 
-### Step 1
-Include the file before the main app file:
+`peity-vanilla` is a direct dependency of `ng-peity`; you normally only need to install `ng-peity`.
 
-~~~html
-<script src="/bower_components/jquery/jquery.min.js"></script>
-<script src="/bower_components/peity/jquery.peity.min.js"></script>
-<script src="/bower_components/ng-peity/ng-peity.js"></script>
-<script src="/js/app.js"></script>
-~~~
+## Usage
 
-### Step 3
-Add `ng-peity` to the app requirements (`/js/app.js`).
-~~~javascript
-var app = angular.module('myApp', [
-    'myApp.controllers',
-    'myApp.filters',
-    'myApp.services',
-    // 3rd party dependencies
-    'ng-peity'
-]);
-~~~
+Import the chart components you need (all are standalone):
 
-## Use it
-This module creates three custom directives (tags) that can be used anywhere in your templates. Each directive uses two attributes that are bound to properties of a controller.
+```typescript
+import { Component, signal } from '@angular/core';
+import { NgPeityBarComponent, NgPeityPieComponent } from 'ng-peity';
 
-* **data** - This attribute is required and is used to supply the data points that the chart will display in an array.
+@Component({
+  selector: 'app-dashboard',
+  imports: [NgPeityPieComponent, NgPeityBarComponent],
+  template: `
+    <ng-peity-pie [data]="pieData()" [options]="pieOptions()" />
+    <ng-peity-bar [data]="barData()" [options]="barOptions()" />
+  `,
+})
+export class DashboardComponent {
+  readonly pieData = signal([12, 8, 15, 6]);
+  readonly pieOptions = signal({ radius: 48 });
 
-* **options** - This attribute is not required. If used it should be an object with property names that match the available options for the type of chart being used. Information about specific options for each chart type is available at: [http://benpickles.github.io/peity/](http://benpickles.github.io/peity/).
+  readonly barData = signal([5, 3, 9, 6, 5]);
+  readonly barOptions = signal({ width: 120, height: 40 });
+}
+```
 
-#### Controller Example
-~~~javascript
-var cMod = angular.module( 'myApp.controllers', ['ng-peity'] );
+### Components
 
-cMod.controller( 'ChartCtrl', function ( $scope, $interval ) {
+| Selector | Chart type |
+|----------|------------|
+| `ng-peity-pie` | Pie |
+| `ng-peity-donut` | Donut |
+| `ng-peity-bar` | Bar |
+| `ng-peity-line` | Line |
 
-    /*
-        This example is over simplified to demonstrate the relationship
-        between the 'controller' and the 'template' with regard to loading
-        the 'icon' value. Hopefully, you will be loading your controller with
-        data from an actual API response. :)
-    */
-    $scope.PieChart = {
-        data: [1, 2, 3, 4],
-        options: {
-            diameter: 150
-        }
-    };
+### Migrating from AngularJS
 
-    $scope.BarChart = {
-        data: [1, 2, 3, 4],
-        options: {
-            width: 150,
-            height: 150
-        }
-    };
-    
-    // Test automatic updates
-    $interval(function() {
-        var random = Math.round(Math.random() * 10);
-        $scope.BarChart.data.shift();
-        $scope.BarChart.data.push(random);
-        $scope.BarChart.options.fill[0] = '#'+Math.floor(Math.random()*16777215).toString(16);
-    }, 1000);
+The legacy element names still work:
 
-    $scope.LineChart = {
-        data: [1, 2, 3, 4, 3, 1],
-        options: {
-            width: 150,
-            stroke: "#eee"
-        }
-    };
+- `inline-pie-chart`
+- `inline-donut-chart`
+- `inline-bar-chart`
+- `inline-line-chart`
 
-} );
-~~~
+Bind `[data]` and `[options]` the same way, but use signal or property bindings instead of `data="PieChart.data"` scope strings.
 
-#### Template Example
-~~~html
-<inline-pie-chart data="PieChart.data" options="PieChart.options"></inline-pie-chart>
+### Inputs
 
-<inline-bar-chart data="BarChart.data" options="BarChart.options"></inline-bar-chart>
+- **`data`** (required) — `number[]` of values rendered by the chart.
+- **`options`** (optional) — Peity options for that chart type (radius, fill, width, height, stroke, etc.). See [Peity documentation](http://benpickles.github.io/peity/) and [peity-vanilla](https://github.com/railsjazz/peity_vanilla).
 
-<inline-line-chart data="LineChart.data" options="LineChart.options"></inline-line-chart>
-~~~
+Charts redraw when `data` or `options` change, and on window or element resize (debounced).
 
+## Development
 
-# Acknowledgments
+```bash
+npm install
+npm run build          # build the library to dist/ng-peity
+npm start              # serve the demo app
+npm run build:demo     # production build of the demo
+```
 
-See the LICENSES.md file for copies of the referenced licenses.
+## License
 
-1. Inspired from Brian Hines <brian@projectweekend.net> [angular-peity](https://github.com/projectweekend/angular-peity)
+MIT — see [LICENSE](LICENSE).
+
+## Acknowledgments
+
+- [Peity](https://github.com/benpickles/peity) by Ben Pickles
+- [peity-vanilla](https://github.com/railsjazz/peity_vanilla)
+- [angular-peity](https://github.com/projectweekend/angular-peity) by Brian Hines (original AngularJS inspiration)

@@ -1,0 +1,44 @@
+<main class="page">
+  <header>
+    <h1>ng-peity</h1>
+    <p>
+      Angular components for
+      <a href="https://github.com/railsjazz/peity_vanilla" target="_blank" rel="noreferrer"
+        >Peity</a
+      >
+      mini SVG charts — no jQuery required.
+    </p>
+  </header>
+
+  <section class="grid">
+    <article class="card">
+      <h2>Pie</h2>
+      <ng-peity-pie [data]="pieData()" [options]="pieOptions()" />
+      <button type="button" (click)="shufflePie()">Shuffle values</button>
+    </article>
+
+    <article class="card">
+      <h2>Donut</h2>
+      <ng-peity-donut [data]="donutData()" [options]="donutOptions()" />
+    </article>
+
+    <article class="card">
+      <h2>Bar (live)</h2>
+      <ng-peity-bar [data]="barData()" [options]="barOptions()" />
+      <p class="hint">Updates every second — same idea as the original AngularJS demo.</p>
+    </article>
+
+    <article class="card">
+      <h2>Line</h2>
+      <ng-peity-line [data]="lineData()" [options]="lineOptions()" />
+    </article>
+  </section>
+
+  <section class="legacy">
+    <h2>Legacy selectors</h2>
+    <p>AngularJS-style tags still work for easier migration:</p>
+    <inline-pie-chart [data]="[2, 5, 3]" [options]="{ radius: 24 }" />
+    <inline-bar-chart [data]="[1, 4, 2, 8]" [options]="{ width: 64, height: 24 }" />
+    <inline-line-chart [data]="[3, 6, 2, 9, 4]" [options]="{ width: 64, height: 24 }" />
+  </section>
+</main>

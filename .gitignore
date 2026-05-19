@@ -1,4 +1,27 @@
+# Dependencies
+node_modules/
 
+# Build
+dist/
+out-tsc/
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
 *.sublime-project
-
 *.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# Logs
+*.log
+npm-debug.log*

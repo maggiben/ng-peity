@@ -1,0 +1,61 @@
+{
+  "hash": "2bde6e2f",
+  "configHash": "c2b2a59f",
+  "lockfileHash": "c64c8075",
+  "browserHash": "5bbf66a4",
+  "optimized": {
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "4b88c91d",
+      "needsInterop": false
+    },
+    "@angular/core/rxjs-interop": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/rxjs-interop.mjs",
+      "file": "@angular_core_rxjs-interop.js",
+      "fileHash": "8103cd9a",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "c981b57e",
+      "needsInterop": false
+    },
+    "peity-vanilla/dist/peity-vanilla.es2017-esm.js": {
+      "src": "../../../../../../node_modules/peity-vanilla/dist/peity-vanilla.es2017-esm.js",
+      "file": "peity-vanilla_dist_peity-vanilla__es2017-esm__js.js",
+      "fileHash": "4cce7164",
+      "needsInterop": false
+    },
+    "rxjs": {
+      "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
+      "file": "rxjs.js",
+      "fileHash": "1a277733",
+      "needsInterop": false
+    },
+    "rxjs/operators": {
+      "src": "../../../../../../node_modules/rxjs/dist/esm5/operators/index.js",
+      "file": "rxjs_operators.js",
+      "fileHash": "6a36f651",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-6LAVAE4D": {
+      "file": "chunk-6LAVAE4D.js"
+    },
+    "chunk-QO67QQ3F": {
+      "file": "chunk-QO67QQ3F.js"
+    },
+    "chunk-WMWTRTCA": {
+      "file": "chunk-WMWTRTCA.js"
+    },
+    "chunk-PADBOZH3": {
+      "file": "chunk-PADBOZH3.js"
+    },
+    "chunk-WDMUDEB6": {
+      "file": "chunk-WDMUDEB6.js"
+    }
+  }
+}
