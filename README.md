@@ -4,6 +4,8 @@ Angular components for [Peity](https://github.com/benpickles/peity)-style mini S
 
 The original AngularJS 1.x implementation lives in [`legacy/`](legacy/).
 
+![ng-peity demo app — pie, donut, bar, and line charts](docs/demo-screenshot.jpg)
+
 ## Demo
 
 ```bash
@@ -11,7 +13,7 @@ npm install
 npm start
 ```
 
-Open [http://localhost:4200](http://localhost:4200) for pie, donut, bar, and line examples—including a live-updating bar chart like the old Plunker demo.
+Open [http://localhost:4200](http://localhost:4200) for pie, donut, bar, and line examples—including a live-updating bar chart like the old Plunker demo. The screenshot above matches what you’ll see when you run the demo locally.
 
 ## Installation
 
